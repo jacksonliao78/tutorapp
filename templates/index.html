@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<h5>Latest 100 questions</h5>
+
+<div class="list-group">
+    {% for question in model.data %}
+    <div class="list-group-item">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"></h5>
+            <small class="text-body-secondary">{{question.datestr}}</small>
+        </div>
+        <p class="mb-1">
+            {{question.content_html}}
+            {% if question.img_path %}
+                <br><b>[img attached]</b>
+            {% endif %}
+        </p>
+        <a href="/users/{{question.author}}" class="text-body-secondary">{{question.author}}</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/questions/{{question.id}}">replies ({{question.num_replies}})</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-- Section: Design Block -->
+<section class="">
+    <!-- Jumbotron -->
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+      <div class="container">
+        <div class="row gx-lg-5 align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <h1 class="my-5 display-3 fw-bold ls-tight">
+                Hassle<br/>
+                free <br />
+                <span class="text-primary">signup</span>
+            </h1>
+            <div style="color: hsl(217, 10%, 50.8%)">
+                <p>No email is required so you will never get spammed. Account is needed only to help you manage questions easier.</p>
+            </div>
+          </div>
+  
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="card">
+              <div class="card-body py-5 px-md-5">
+                <form method="post" action="/signup">
+                  <!-- Username input -->
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example3">Username</label>
+                    <input type="text" id="username" name="username" class="form-control" />
+                  </div>
+  
+                  <!-- Password input -->
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example4">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" />
+                  </div>
+  
+                  <!-- Submit button -->
+                  <button type="submit" class="btn btn-primary btn-block mb-4">
+                    Sign up
+                  </button>
+                  <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a href="/login"
+                      class="link-danger">login</a></p>
+                  <br/>
+                  <br/>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Jumbotron -->
+  </section>
+  <!-- Section: Design Block -->
+{% endblock %}

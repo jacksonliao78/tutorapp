@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+    <h5>New Question</h5>
+    <form method="post" action="/questions" enctype="multipart/form-data">
+        <div class="mb-3">
+            <textarea class="form-control" id="content_md" name="content_md" rows="5"></textarea>
+        </div>
+        <div class="mb-3">
+            <input type="file" id="img" name="img">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block mb-4">
+          Post
+        </button>
+    </form>
+</div>
+{% endblock %}

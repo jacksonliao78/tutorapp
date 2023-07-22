@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="question-content">
+    {{question.content_html}}
+    {% if question.img_path != '' %}
+    <div>
+        <img src="/{{question.img_path}}" width="100%">
+    </div>
+    {% endif %}
+</div>
+<div class="question-footer">
+    {{question.author}}&nbsp;&nbsp;&nbsp;&nbsp;{{question.datestr}}
+</div>
+<br/>
+<br/>
+<div>
+    <h5>replies ({{question.num_replies}})</h5>
+    {%if question.num_replies == 0%}
+    <div><i>Be the first to answer!</i></div>
+    {%else%}
+    {% for r in replies %}
+    <div class="question-content">
+        {{r.content_html}}
+        <br/>
+        <div class="question-footer">
+            {{r.author}}&nbsp;&nbsp;&nbsp;&nbsp;{{r.datestr}}
+        </div>
+    </div>
+    {% endfor %}
+    {%endif%}
+</div>
+<br/>
+<br/>
+{%if model.logged_in%}
+<div>
+    <h5>Post reply</h5>
+    <form method="post" action="/questions/{{question.id}}/replies">
+        <div class="mb-3">
+            <textarea class="form-control" id="reply" name="reply" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block mb-4">
+          Post
+        </button>
+    </form>
+</div>
+{%else%}
+<div>
+    <i>Please <a href="/login?redirect_url=/questions/{{question.id}}">login</a> to reply.</i>
+</div>
+{%endif%}
+{% endblock %}
