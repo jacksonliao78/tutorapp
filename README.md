@@ -12,6 +12,12 @@ I also believe in the collective goodness of the people, and this application wo
 - User can log out of the application once they're done. The default timeout of the Flask session is 31 days. So if not explicitly logged out, user remains logged in for 31 days.
 - All the data is saved in a sqlite3 database file. It is chosen because it's self contained as a single file so its easier to work with. And would be a lot cheaper to host on the internet.
 
+# To run
+
+```
+flask run --port 8000
+```
+
 # Sqlite3
 
 Sqlite3 should come with MacOS, in the prompt type `sqlite3`, it should put you in the sqlite3 prompt:
